@@ -20,7 +20,7 @@ h6 ,
 .h6 {
 color:#b34848;
 }    
-a:hover {
-    text-decoration: underline;
+.blog-post-title a:hover {
+    text-decoration: underline; color:#b34848;
 }
   

@@ -1,4 +1,5 @@
 
+<?php include 'db.php' ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -27,7 +28,7 @@
     <div class="row">
 
         <?php include 'posts.php' ?>
-
+        
         <?php include 'sidebar.php' ?>
         
 
