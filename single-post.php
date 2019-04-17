@@ -58,7 +58,7 @@
 
                </div>
                </article>
-              
+               <?php include 'comments.php' ?>
 
 
 			   
@@ -68,7 +68,7 @@
 		</div><!-- /.blog-main -->
 
         <?php include 'sidebar.php' ?>
-
+       
 
 </div><!-- /.row -->
 

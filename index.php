@@ -1,6 +1,3 @@
-
-<?php include 'db.php' ?>
-<?php include 'comments.php' ?>
 <!doctype html>
 <html lang="en">
 <head>
