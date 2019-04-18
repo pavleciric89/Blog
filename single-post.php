@@ -41,24 +41,43 @@
 			        $statement->setFetchMode(PDO::FETCH_ASSOC);
 					$singlePost = $statement->fetchAll()[0];
 					
-				}
+				    }   
 					
 				?>
-				<article class="va-c-article">
-               <header>
-                   <h1><?php echo($singlePost['Title']) ?></h1>
+<article class="va-c-article">
+    <header>
+        <h1><?php echo($singlePost['Title']) ?></h1>
 
-                   <!-- zameniti  datum i ime sa pravim imenom i datumom blog post-a iz baze -->
-                   <div class="va-c-article__meta"><?php echo($singlePost['Created_at']) ?> by <?php echo($singlePost['Author']) ?></div>
-               </header>
+        <!-- zameniti  datum i ime sa pravim imenom i datumom blog post-a iz baze -->
+            <div class="va-c-article__meta"><?php echo($singlePost['Created_at']) ?> by <?php echo($singlePost['Author']) ?></div>
+    </header>
 
-               <div>
-                   <!-- zameniti ovaj privremeni (testni) text sa pravim sadrzajem blog post-a iz baze -->
-                   <p><?php echo($singlePost['Body']) ?></p>
+    <div>
+        <!-- zameniti ovaj privremeni (testni) text sa pravim sadrzajem blog post-a iz baze -->
+        <p><?php echo($singlePost['Body']) ?></p>
 
-               </div>
-               </article>
-               <?php include 'comments.php' ?>
+    </div>
+</article>
+<?php
+    $error = '';
+    if (!empty($_GET['error'])) {
+        $error = 'All fields are required';
+    }
+?>
+<?php if (!empty($error)) { ?>
+    <span class="alert alert-danger"><?php echo $error; ?></span>
+<?php } ?>
+<form action= "createComment.php" method ="post">
+    <div class="form-group">
+        <input type="text" name="author"placeholder = "Author" class="form-control">
+    </div>
+    <div class="form-group">
+        <textarea name="message" rows="3" cols="20" placeholder="Comment "class="form-control"></textarea>
+    </div>
+    <input type="hidden" value="<?php echo $_GET['post_id']; ?>" name="post_id">
+    <input type="submit" value="Submit" class="btn btm-primary">
+</form>
+<?php include 'comments.php' ?>
 
 
 			   

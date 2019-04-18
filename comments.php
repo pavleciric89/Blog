@@ -18,14 +18,19 @@ $comments = $statement->fetchAll();
     <button class="btn btn-default" id=myButton1 onclick="myFunctionChange()" type="submit">Hide comments</button>
 
     <div id="comments">
-    <p>Comments<p>
+    <strong><p>Comments<p></strong>
         <ul>
             <?php foreach ($comments as $comment) { ?>
                 
                 <li>
-                    <div><?php echo $comment['Author']; ?></div>
+                    <strong><div><?php echo $comment['Author']; ?></div></strong>
                     <div><?php echo $comment['Text']; ?></div>
                     <hr>
+                    <form action="deleteComment.php" method="POST">
+                        <input type="hidden" value="<?php echo $_GET['post_id']; ?>" name="post_id">
+                        <input type="hidden" value="<?php echo $comment['Id']; ?>" name="comment_id">
+                        <input type="submit" class="btn btn-default" id="delete" type="button" onclick="myFunctionDelete()" value="Delete comment" >
+                    </form>
                 </li>
             <?php } ?>
         </ul>
@@ -46,5 +51,4 @@ function myFunctionChange() {
 
    
 } 
-
 </script>

@@ -13,7 +13,6 @@ h3,
 .h3,
 h4,
 .h4,
-h5,
 .h5,
 h6,
 .h6 {
@@ -27,4 +26,9 @@ color:#b34848;
 .blog-post-title a:hover {
     text-decoration: underline; color:#b34848;
 }
-  
+.commentForm{
+   size: 40px;
+}
+.commentTitle1{
+    color:#b34848; 
+}  
